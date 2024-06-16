@@ -4,26 +4,34 @@
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width,initial-scale=1" />
       <title>Python Feature Quiz</title>
+      <link rel="stylesheet" type="text/css" href="styles.css" />
       <link rel="stylesheet" href="https://pyscript.net/releases/2024.6.1/core.css">
       <script type="module" src="https://pyscript.net/releases/2024.6.1/core.js"></script>
   </head>
   <body>
     <h1>Python Feature Quiz</h1>
-    <div id="intro">
-      <p>You will be presented with Python snippets representing various language features to identify.</p>
-      <p>You will gain 1 point for each correct answer and lose 2 points for each incorrect answer. You can skip a question without penalty by clicking Continue.</p> 
-      <p>When the game finishes loading, click Begin.</p>
-      <p>Good luck!</p>
-    </div>
-    <div id="quiz-elements">
+    <div id="quiz-body">
+      <div id="intro">
+        <p>You will be presented with Python snippets representing various language features to identify.</p>
+        <p>You will gain 1 point for each correct answer and lose 2 points for each incorrect answer. You can skip a question without penalty by clicking Continue.</p> 
+        <p>When the game finishes loading, click Begin.</p>
+        <p>Good luck!</p>
+      </div>
+      <div id="quiz-elements">
         <div id="question"></div>
         <div id="feature"></div>
         <div id="options"></div>
+      </div>
+      <div id="inputs">
+        <input class="answer" style="display: none;">
+        <button class="submit", py-click="check_answer" style="display: none;">Submit</button>
+        <button class="continue", py-click="game">Begin</button>
+      </div>
+      <div id="result">
+        <div id="response"></div>
+        
+      </div>
     </div>
-    <input class="answer" style="display: none;">
-    <button class="submit", py-click="check_answer" style="display: none;">Submit</button>
-    <button class="continue", py-click="game">Begin</button>
-    <div id="response"></div>
     <div id="score"></div>
     
     <script type="py" src="./main.py" config="./pyscript.json"></script>

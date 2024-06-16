@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    font-size: large;
+}
+
+h1 {
+    color: white;
+    background-color: #4472C4;
+    padding: 30px;
+}
+
+#quiz-body {
+    padding: 20px;
+}
+
+#feature {
+    padding: 20px;
+    font-family: monospace;
+    font-size: x-large;
+}
+
+#inputs {
+    padding: 10px 0px;
+}
+
+button, input {
+    
+    border-radius: 5px;
+    height: 30px;
+}
+
+button {
+    background-color: #4472C4;
+    color: white;
+    width: 100px;
+    font-size: large;
+    
+}
+
+button:disabled {
+    background-color: #D9D9D9;
+    color: black;
+}
+
+
+#result {
+    padding: 10px 0px;
+}
+
+#score {
+    font-weight: bold;
+    padding: 20px;
+    color: white;
+    background-color: #4472C4;
+}
+
+
+button:is(:focus, :hover) {
+  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
+}
