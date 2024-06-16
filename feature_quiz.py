@@ -1,3 +1,5 @@
+# standalone version of the Python Feature Quiz, intended to be run from the command line
+
 import random
 
 counties = ('Hennepin', 'Ramsey', 'Dakota', 'Washington', 'Anoka', 'Carver', 'Scott', 'Olmsted', 'Winona')
