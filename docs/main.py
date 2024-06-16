@@ -184,10 +184,11 @@ def check_answer(event, feature_dict=feature_dict, score_dict=score_dict, correc
     correct_answer = event.target.id
     response_div = document.querySelector("#response")
     document.querySelector(".answer").value = ""
-    button = document.querySelector(".continue")
+    skip_button = document.querySelector(".continue")
+    submit_button = document.querySelector(".submit")
 
     if answer is None or not answer.isnumeric() or answer != correct_answer:
-        button.id = "incorrect"
+        skip_button.id = "incorrect"
         if answer in score_dict.keys():
             score_dict[answer] -= 1
             answer = feature_dict[answer][0] # convert numeric answer to function description
@@ -197,19 +198,21 @@ def check_answer(event, feature_dict=feature_dict, score_dict=score_dict, correc
         score_dict[correct_answer] -= 1
         response_div.innerText = f"{answer} is incorrect. The correct answer is: {feature_dict[correct_answer][0]}. Click Continue to keep playing."
     else:
-        button.id = correct_answer
+        skip_button.id = correct_answer
         score_dict[answer] += 1
         response_div.innerText = (f"{feature_dict[answer][0]} is correct! Click Continue to keep playing.")
     display_score(score_dict, correct_needed)
+    submit_button.disabled = True
+    skip_button.innerText = "Continue"
 
 def set_display():
     """
-    Remove the introduction / instructions
+    Replace the introduction / instructions with the quiz elements
     """
     pydom['.answer'][0].style["display"] = 'inline'
     pydom['.submit'][0].style["display"] = 'inline'
     pydom['#intro'][0].style["display"] = 'none'
-    document.querySelector('.continue').innerText = "Continue"
+    document.querySelector('.continue').innerText = "Skip"
     document.querySelector('#response').innerText = ""
 
 def display_score(score_dict, correct_needed):
@@ -239,6 +242,8 @@ def game(event, score_dict=score_dict, feature_dict=feature_dict, correct_needed
     play the game
     """
     set_display()
+    submit_button = document.querySelector(".submit")
+    submit_button.disabled = False
 
     if sum(score_dict.values()) == len(score_dict) * correct_needed:
         game_complete()
