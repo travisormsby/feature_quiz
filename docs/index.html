@@ -9,7 +9,12 @@
   </head>
   <body>
     <h1>Python Feature Quiz</h1>
-    <div id="intro">You will be presented with Python snippets representing various language features to identify. When the game finishes loading, click Continue to begin. Good luck!</div>
+    <div id="intro">
+      <p>You will be presented with Python snippets representing various language features to identify.</p>
+      <p>You will gain 1 point for each correct answer and lose 2 points for each incorrect answer. You can skip a question without penalty by clicking Continue.</p> 
+      <p>When the game finishes loading, click Begin.</p>
+      <p>Good luck!</p>
+    </div>
     <div id="quiz-elements">
         <div id="question"></div>
         <div id="feature"></div>
@@ -17,9 +22,9 @@
     </div>
     <input class="answer" style="display: none;">
     <button class="submit", py-click="check_answer" style="display: none;">Submit</button>
-    <button class="continue", py-click="game">Continue</button>
+    <button class="continue", py-click="game">Begin</button>
     <div id="response"></div>
-    <div id="test"></div>
+    <div id="score"></div>
     
     <script type="py" src="./main.py" config="./pyscript.json"></script>
   </body>
